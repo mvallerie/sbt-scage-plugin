@@ -59,8 +59,14 @@ object ScagePlugin extends Plugin {
     	phys2DPatch <<= phys2DPatchTask,
 	nativesExtract <<= nativesExtractTask,
 
-	resolvers += "dunnololda's maven repo" at "https://raw.github.com/dunnololda/mvn-repo/master",
-	libraryDependencies += "org.lwjgl.lwjgl" % "lwjgl-platform" % "2.8.2",
+	resolvers ++= Seq(
+		"dunnololda's maven repo" at "https://raw.github.com/dunnololda/mvn-repo/master",
+		"lwjgl" at "http://adterrasperaspera.com/lwjgl",
+        	"Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
+        	"FreeHEP Repository" at "http://java.freehep.org/maven2",
+        	"B2S Repository" at "http://b2s-repo.googlecode.com/svn/trunk/mvn-repo",
+        	"Scala-Tools Maven2 Repository" at "https://oss.sonatype.org/content/groups/scala-tools/"
+	),
 	libraryDependencies <+= (scage.version) { "com.github.dunnololda.scage" % "scage" % _ },
 
 	// TODO should run on "update" only.
