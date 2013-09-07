@@ -6,7 +6,17 @@ This is a simple SBT plugin designed to integrate Scage (Scala Game Engine) to y
 How to use
 ----------
 
-[Scage](https://www.github.com/dunnololda/scage/) is a game engine written in Scala. To integrate it to your SBT projects, do the following :
+[Scage](https://www.github.com/dunnololda/scage/) is a game engine written in Scala. To integrate it to your SBT projects, read the following :
+
+Currently the plugin is not deployed in SBT plugins repository (I plan to do it later), you have to get the sources and compile it :
+
+###
+$ git clone https://github.com/mvallerie/sbt-scage-plugin.git
+$ cd sbt-scage-plugin
+$ sbt publish-local
+###
+
+Okay ! Now let's configure your new SBT/Scage project :
 
 ###project/plugins.sbt
 	addSbtPlugin("sbt-scage-plugin" % "sbt-scage-plugin" % "0.1-SNAPSHOT")
