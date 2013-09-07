@@ -42,6 +42,8 @@ You can also change Scage version using :
 
 By default, the most recent version is selected (the plugin will be updated for each version of Scage).
 
+Please note that you might have to run "update" task twice to get some problematic dependencies (mainly phys2d), this is a normal behaviour.
+
 Example
 -------
 
