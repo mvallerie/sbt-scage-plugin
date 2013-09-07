@@ -11,9 +11,9 @@ How to use
 Currently the plugin is not deployed in SBT plugins repository (I plan to do it later), you have to get the sources and compile it :
 
 ###
-$ git clone https://github.com/mvallerie/sbt-scage-plugin.git
-$ cd sbt-scage-plugin
-$ sbt publish-local
+	$ git clone https://github.com/mvallerie/sbt-scage-plugin.git
+	$ cd sbt-scage-plugin
+	$ sbt publish-local
 ###
 
 Okay ! Now let's configure your new SBT/Scage project :
