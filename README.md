@@ -32,7 +32,7 @@ Okay ! Now let's configure your new SBT/Scage project :
 	seq(scageSettings: _*)
 ###
 
-You can change the scalaVersion but you may have issues if you put an older version than Scage's (currently 2.10.1).
+You can change the scalaVersion but you might have issues if you put an older version than Scage's (currently 2.10.1).
 
 You can also change Scage version using :
 
