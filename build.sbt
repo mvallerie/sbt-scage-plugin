@@ -2,6 +2,8 @@ sbtPlugin := true
 
 name := "sbt-scage-plugin"
 
+organization := "com.github.mvallerie"
+
 version := "0.1-SNAPSHOT"
 
 scalacOptions += "-deprecation"
