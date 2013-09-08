@@ -8,17 +8,11 @@ How to use
 
 [Scage](https://www.github.com/dunnololda/scage/) is a game engine written in Scala. To integrate it to your SBT projects, read the following :
 
-Currently the plugin is not deployed in SBT plugins repository (I plan to do it later), you have to get the sources and compile it :
-
-###
-	$ git clone https://github.com/mvallerie/sbt-scage-plugin.git
-	$ cd sbt-scage-plugin
-	$ sbt publish-local
-###
-
-Okay ! Now let's configure your new SBT/Scage project :
+The plugin is deployed in SBT plugins repository, currently, it is a SNAPSHOT version :
 
 ###project/plugins.sbt
+	resolvers += Resolver.url("sbt-plugin-snapshots", new URL("http://repo.scala-sbt.org/scalasbt/sbt-plugin-snapshots/"))(Resolver.ivyStylePatterns)
+	
 	addSbtPlugin("sbt-scage-plugin" % "sbt-scage-plugin" % "0.1-SNAPSHOT")
 ###
 
@@ -48,3 +42,14 @@ Example
 -------
 
 You can check out the example directory to get a quick start. I'll release a template when i'll get more time :).
+
+Compile by yourself
+-------------------
+
+You can use SBT 0.13 and higher to compile the plugin by yourself :
+
+###
+	$ git clone https://github.com/mvallerie/sbt-scage-plugin.git
+	$ cd sbt-scage-plugin
+	$ sbt publish-local
+###
