@@ -1,6 +1,6 @@
 import sbt._
 import Keys._
-import Project.Initialize
+import Def.Initialize
 import io.Source
 import Classpaths.managedJars
 

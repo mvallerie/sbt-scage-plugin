@@ -4,6 +4,8 @@ name := "sbt-scage-plugin"
 
 version := "0.1-SNAPSHOT"
 
+scalacOptions += "-deprecation"
+
 publishTo := {
    val scalasbt = "http://repo.scala-sbt.org/scalasbt/"
    /*val (name, url) = */
