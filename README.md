@@ -3,6 +3,12 @@ sbt-scage-plugin
 
 This is a simple SBT plugin designed to integrate Scage (Scala Game Engine) to your projects.
 
+Requirements
+------------
+
+SBT 0.13.x
+Scala 2.10.x
+
 How to use
 ----------
 
@@ -26,7 +32,7 @@ The plugin is deployed in SBT plugins repository, currently, it is a SNAPSHOT ve
 	seq(scageSettings: _*)
 ###
 
-You can change the scalaVersion but you might have issues if you put an older version than Scage's (currently 2.10.1).
+You can change the scalaVersion but you might have issues if you put a version which is not in 2.10.x branch.
 
 You can also change Scage version using :
 
@@ -46,7 +52,7 @@ You can check out the example directory to get a quick start. I'll release a tem
 Compile by yourself
 -------------------
 
-You can use SBT 0.13 and higher to compile the plugin by yourself :
+You can use SBT 0.13.x to compile the plugin by yourself :
 
 ###
 	$ git clone https://github.com/mvallerie/sbt-scage-plugin.git
