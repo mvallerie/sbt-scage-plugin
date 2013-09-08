@@ -6,8 +6,8 @@ This is a simple SBT plugin designed to integrate Scage (Scala Game Engine) to y
 Requirements
 ------------
 
-SBT 0.13.x
-Scala 2.10.x
+- SBT 0.13.x
+- Scala 2.10.x
 
 How to use
 ----------
