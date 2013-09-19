@@ -19,7 +19,7 @@ The plugin is deployed in SBT plugins repository, currently, it is a SNAPSHOT ve
 ###project/plugins.sbt
 	resolvers += Resolver.url("sbt-plugin-snapshots", new URL("http://repo.scala-sbt.org/scalasbt/sbt-plugin-snapshots/"))(Resolver.ivyStylePatterns)
 	
-	addSbtPlugin("sbt-scage-plugin" % "sbt-scage-plugin" % "0.1-SNAPSHOT")
+	addSbtPlugin("com.github.mvallerie" % "sbt-scage-plugin" % "0.1-SNAPSHOT")
 ###
 
 ###build.sbt
