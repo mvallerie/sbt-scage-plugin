@@ -17,4 +17,6 @@ publishTo := {
    Some(Resolver.url(repo._1, new URL(repo._2))(Resolver.ivyStylePatterns))
 }
 
+credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
+
 publishMavenStyle := false
