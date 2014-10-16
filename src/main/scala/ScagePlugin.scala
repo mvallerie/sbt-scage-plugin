@@ -17,7 +17,7 @@ object ScagePlugin extends Plugin {
 
     def defineOs = System.getProperty("os.name").toLowerCase.take(3).toString match {
     	case "lin" => ("linux", "so")
-    	case "mac" | "dar" => ("macosx", "lib")
+    	case "mac" | "dar" => ("osx", "lib")
     	case "win" => ("windows", "dll")
     	case "sun" => ("solaris", "so")
     	case _ => ("unknown", "")
@@ -44,7 +44,9 @@ object ScagePlugin extends Plugin {
     }
 
     private def nativesExtractTask : Initialize[sbt.Task[Unit]] = (streams, classpathTypes, update) map { (s, ct, up) =>
-    	val natives = managedJars(Compile, ct, up) map { _.data } find { _.getName.startsWith("lwjgl-native") }
+    	val natives = managedJars(Compile, ct, up) map { _.data } find { (j) =>
+          j.getName.startsWith("lwjgl-platform") && j.getName.endsWith("%s.jar".format(defineOs._1))
+        }
         natives map {
         	val target = file(".") / "libs" / "natives"
                 s.log.info("Extracting LWJGL natives to " + target)
@@ -61,10 +63,8 @@ object ScagePlugin extends Plugin {
 
 	resolvers ++= Seq(
 		"dunnololda's maven repo" at "https://raw.github.com/dunnololda/mvn-repo/master",
-		"lwjgl" at "http://adterrasperaspera.com/lwjgl",
         	"Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
         	"FreeHEP Repository" at "http://java.freehep.org/maven2",
-        	"B2S Repository" at "http://b2s-repo.googlecode.com/svn/trunk/mvn-repo",
         	"Scala-Tools Maven2 Repository" at "https://oss.sonatype.org/content/groups/scala-tools/"
 	),
 	libraryDependencies <+= (scage.version) { "com.github.dunnololda.scage" % "scage" % _ },
@@ -75,7 +75,7 @@ object ScagePlugin extends Plugin {
 	run <<= run in Runtime dependsOn nativesExtract,
 
 	fork := true,
-	javaOptions ++= Seq("-Djava.library.path=%s".format(file(".") / "libs" / "natives" / defineOs._1), "-DLWJGL_DISABLE_XRANDR=true")
+	javaOptions ++= Seq("-Djava.library.path=%s".format(file(".") / "libs" / "natives"), "-DLWJGL_DISABLE_XRANDR=true")
     )
 
 }

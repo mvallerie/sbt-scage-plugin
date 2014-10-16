@@ -10,7 +10,6 @@ scalacOptions += "-deprecation"
 
 publishTo := {
    val scalasbt = "http://repo.scala-sbt.org/scalasbt/"
-   /*val (name, url) = */
    val repo = if (version.value.contains("-SNAPSHOT"))
      ("sbt-plugin-snapshots", scalasbt+"sbt-plugin-snapshots")
    else
