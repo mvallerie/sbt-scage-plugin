@@ -14,8 +14,6 @@ How to use
 
 [Scage](https://www.github.com/dunnololda/scage/) is a game engine written in Scala. To integrate it to your SBT projects, read the following :
 
-The plugin is deployed in SBT plugins repository, currently, it is a SNAPSHOT version :
-
 ###project/plugins.sbt
 	resolvers += Resolver.sbtPluginRepo("releases")
 
