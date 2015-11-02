@@ -1,22 +1,20 @@
-sbtPlugin := true
-
-name := "sbt-scage-plugin"
-
-organization := "com.github.mvallerie"
-
-version := "0.1-SNAPSHOT"
+import bintray.Keys._
 
 scalacOptions += "-deprecation"
 
-publishTo := {
-   val scalasbt = "http://repo.scala-sbt.org/scalasbt/"
-   val repo = if (version.value.contains("-SNAPSHOT"))
-     ("sbt-plugin-snapshots", scalasbt+"sbt-plugin-snapshots")
-   else
-     ("sbt-plugin-releases", scalasbt+"sbt-plugin-releases")
-   Some(Resolver.url(repo._1, new URL(repo._2))(Resolver.ivyStylePatterns))
-}
+lazy val commonSettings = Seq(
+  version in ThisBuild := "0.1",
+  organization in ThisBuild := "com.github.mvallerie"
+)
 
-credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
-
-publishMavenStyle := false
+lazy val root = (project in file(".")).
+  settings(commonSettings ++ bintrayPublishSettings: _*).
+  settings(
+    sbtPlugin := true,
+    name := "sbt-scage-plugin",
+    description := "A simple sbt plugin for Scage, a scala game engine",
+    licenses += ("GPL-3.0", url("http://www.gnu.org/licenses/gpl-3.0.html")),
+    publishMavenStyle := false,
+    repository in bintray := "sbt-plugins",
+    bintrayOrganization in bintray := None
+  )
